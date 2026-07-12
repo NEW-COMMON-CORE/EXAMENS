@@ -1,22 +1,25 @@
 def number_base_converter(number: str, from_base: int, to_base: int) -> str:
+    digite = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-    digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-    if not 2 <= from_base <= 36:
+    if not 2 <= from_base <= 36 or not 2 <= to_base <= 36:
         return "ERROR"
-    if not 2 <= to_base <= 36:
-        return "ERROR"
+    
     try:
         decimal = int(number, from_base)
     except ValueError:
-        return ("ERROR")
+        return "ERROR"
+    
     if decimal == 0:
         return "0"
-    result: str = ""
-    while decimal > 0:
-        result = digits[decimal % to_base] + result
+    
+
+    result = ""
+    while(decimal > 0):
+        result = digite[decimal % to_base] + result
         decimal //= to_base
+
     return result
+
 
 
 if __name__ == "__main__":
