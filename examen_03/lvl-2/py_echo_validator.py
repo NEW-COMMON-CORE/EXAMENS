@@ -8,7 +8,7 @@ def echo_validator(text: str) -> bool:
         if c.isalpha():
             text2 += c.lower()
 
-    return text == text2[::-1]
+    return text2 == text2[::-1]
 
 
 
